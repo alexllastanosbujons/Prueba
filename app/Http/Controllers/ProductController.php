@@ -30,4 +30,13 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Producto creado exitosamente.');
     }
 
+    public function destroy($id)
+    {
+    $product = Product::findOrFail($id);
+    $product->delete();
+
+    return redirect()->back()->with('success', 'Producto eliminado correctamente.');
+    }
+
+
 }
