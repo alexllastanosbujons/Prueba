@@ -20,17 +20,17 @@
     <div class="m-4">
         <form class="" action="{{ route('products.store') }}" method="POST">
             @csrf
-            <div class="">
+            <div class="my-2">
                 <label class="" for="name">Nombre del Producto:</label>
                 <input class="border rounded p-1" type="text" name="name" id="name" required>
             </div>
-            <div>
+            <div class="my-2">
                 <label for="price">Precio:</label>
                 <input class="border rounded p-1" type="number" name="price" id="price" required step="0.01">
             </div>
-            <div>
+            <div class="my-2">
                 <label for="description">Descripción:</label>
-                <textarea class="border rounded p-1" name="description" id="description"></textarea>
+                <textarea class="block border rounded p-1 resize-x" name="description" id="description"></textarea>
             </div>
             <button
                 class="my-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded"
@@ -62,17 +62,23 @@
                             <label for="editDescription" class="block">Descripción:</label>
                             <textarea class="border rounded p-1 w-full" name="description" id="editDescription"></textarea>
                         </div>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4"
-                            type="submit">Actualizar</button>
-                        <button type="button" class="ml-2 bg-gray-300 hover:bg-gray-500 text-white font-bold py-1 px-4"
-                            onclick="closeModal()">Cancelar</button>
+                        <div class="flex justify-between">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" type="submit">
+                                Actualizar
+                            </button>
+                            <button type="button" class="bg-gray-300 hover:bg-gray-500 text-white font-bold py-1 px-4 rounded" onclick="closeModal()">
+                                Cancelar
+                            </button>
+                        </div>
+                        </div>
+
                     </form>
                 </div>
             </div>
 
             <ul>
                 @foreach ($products as $product)
-                    <li class="flex justify-center items-center border-b pb-2 mb-2 ">
+                    <li class="flex justify-center items-center border-b pb-2 mb-2">
                         <div class="text-lg font-semibold mx-4">
                             {{ $product->name }} - ${{ number_format($product->price, 2) }}
                         </div>
