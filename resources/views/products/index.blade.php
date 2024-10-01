@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
 
     <title>Prova</title>
 </head>
-<body>
-<p>Hola pepsicola</p>
-    <h1>Crear Producto</h1>
+<body class="bg-gray-100">
+    <p class="text-lg text-gray-800">Hola pepsicola</p>
+    <h1 class="text-4xl font-bold">Crear Producto</h1>
+
 
     @if(session('success'))
         <p style="color: green;">{{ session('success') }}</p>
@@ -34,12 +35,12 @@
     </form>
     <h2>Lista de Productos</h2>
     @if($products->isEmpty())
-        <p>No hay productos creados aún.</p>
+        <p class="bg-slate-100">No hay productos creados aún.</p>
     @else
     <div>
         <ul>
             @foreach($products as $product)
-                <li class="border">{{ $product->name }} - ${{ number_format($product->price, 2) }}</li>
+                <p class="bold">{{ $product->name }} - ${{ number_format($product->price, 2) }}</p>
             @endforeach
         </ul>
     </div>
